@@ -1,1 +1,43 @@
-\chapter{Related Work}
+\chapter{Preliminaries}
+\label{chap:related_work}
+This chapter aims to introduce the overarching concepts of glyph-based visualizations. 
+The first section provides a grounding on the building blocks of visualizations. 
+These blocks are often named as the \emph{visual channels}, of which there are many. 
+These are processed by the visual system which we detail in full.
+Our visual system and knowledge of how these visual channels are processed forms the basis of concepts such as \emph{pre-attentive processing}, \emph{channel composition}, \emph{global/local features}, \emph{top-down vs bottom-up processing} and so on which are often mentioned in the literature. 
+These concepts are important when constructing any visualization since an understanding of how humans process visual information should allow for better visualization design.
+
+The second section introduces glyphs and glyph-based visualization.
+We introduce the history of glyphs, their application areas, and finally, their limitations.
+
+\input{chapters/relatedwork-visual}
+
+\input{chapters/relatedwork-glyphs}
+
+\section{Summary}
+
+Glyphs have so far made a large contribution to the visualization literature and have already been employed in a large number of domains as exemplified in Section \ref{sec:glyph-examples}. 
+
+However, there are some criticisms of glyphs made by Lee \etal \cite{Lee03anempirical} and Morris \etal \cite{morris2000experimental}. 
+Lee \etal found that users asked to perform data comparison tasks (largest value/smallest value tasks) were slower, less accurate and users were less confident when using glyphs compared to spatial representations (scatter plots in this case). 
+As detailed in earlier parts of this chapter, position is a very powerful visualization primitive for the display of data. 
+Spatial representations featuring only two dimensions are inevitably going to provide more favourable results than glyphs with no spatial arrangement.
+
+True advantages may be obtained through using glyphs when there is a need to represent many dimensions, not just two quantitative dimensions where spatial representations will perform very well. 
+Techniques such as parallel coordinates will allow for visualization of many dimensions at once, however the spatial information is lost.
+Glyphs, as stated earlier have the power to represent many more dimensions with the additional advantage of using spatial information to position glyphs in 2D or 3D space.  
+
+The key problem in creating glyphs also identified by Ward \cite{ward02} and Lee \etal \cite{Lee03anempirical} is in deciding which visual channels outlined in Section \ref{sec:retinal_variables} should represent data attributes. 
+For example, using colour to indicate categories that have no associated colour in the real world is not a suitable mapping.
+Similarly, using shape to represent categories with no obvious shape association is also not a good mapping.
+This is the most probable reason for the poor performance of Chernoff faces in an evaluation by Morris \etal \cite{morris2000experimental}.
+
+There are many examples of such visual mappings in the examples listed in Section \ref{sec:glyph-examples} which use too many abstract mappings in their glyph design. 
+
+Ideally we wish to make glyphs easier to decipher, display information more accurately, and present important information in the most visually accessible way. 
+This can be achieved through following the perceptual knowledge outlined in Sections \ref{sec:retinal_variables}, \ref{sec:channel-composition}, \ref{sec:global_local_processing}, \ref{sec:topdown_bottomup}, and \ref{sec:popout}. 
+Section \ref{sec:retinal_variables} for instance details the visual channels that are best for representing quantitative and qualitative information. 
+
+The goal of this thesis is to address the limitations of glyphs through systemising their design.
+This will involve incorporating the psychological and neurophysiological information presented in this chapter into a more formal process for glyph design. 
+The exact mechanism we propose for accomplishing this is discussed next chapter which will outline some of the possible strategies we may employ to enable this systemisation. 

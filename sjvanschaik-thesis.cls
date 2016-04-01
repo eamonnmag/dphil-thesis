@@ -59,14 +59,15 @@
 % As an alternative to the above could use next line for twosided output
 %\LoadClass[a4paper,twoside,openright]{report}
 
-\RequirePackage{graphicx,tikz,pgfplots,pgfplotstable,xspace,amsmath,amssymb,upgreek,varioref,suffix,etoolbox,environ,forloop,setspace,manfnt,amsthm,cite,fancyhdr,stmaryrd,prettyref,ifthen,fix-cm,blindtext}
+\RequirePackage{graphicx,xspace,amsmath,amssymb,upgreek,varioref,suffix,environ,forloop,setspace,manfnt,amsthm,cite,fancyhdr,stmaryrd,prettyref,ifthen,fix-cm,blindtext}
 
 \RequirePackage[pagebackref=true,bookmarks=true]{hyperref}
 
 % Default font
 \RequirePackage[sc]{mathpazo}
-\linespread{1.05}         % Palatino needs more leading (space between lines)
+\linespread{1.25}         % Palatino needs more leading (space between lines)
 \RequirePackage[T1]{fontenc}
+
 
 %\RequirePackage[final]{listings}
 
@@ -79,20 +80,20 @@
 \setlength{\textwidth}{6.0in}
 
 % Algorithm (algorithm2e) stuff
-\RequirePackage[ruled,vlined]{algorithm2e}
+%\RequirePackage[ruled,vlined]{algorithm2e}
 % \SetAlCapSkip{0.5em}
 % \SetAlCapNameSty{textbf}
-\SetAlCapHSkip{0cm}
-\SetAlgoSkip{}
-\setlength{\algomargin}{0em}
-\SetKwComment{Comment}{$\rhd$~}{}
-\SetKwBlock{Begin}{}{}
-\SetFuncSty{textsc}
-\SetCommentSty{scriptsize}
-\SetDataSty{textsc}
-\SetKw{AlgAnd}{and}
-\SetKw{AlgOr}{or}
-\SetKw{AlgContinue}{continue}
+%\SetAlCapHSkip{0cm}
+%\SetAlgoSkip{}
+%\setlength{\algomargin}{0em}
+%\SetKwComment{Comment}{$\rhd$~}{}
+%\SetKwBlock{Begin}{}{}
+%\SetFuncSty{textsc}
+%\SetCommentSty{scriptsize}
+%\SetDataSty{textsc}
+%\SetKw{AlgAnd}{and}
+%\SetKw{AlgOr}{or}
+%\SetKw{AlgContinue}{continue}
 
 
 \newcommand{\WarnIfNotDraft}[1]{%
@@ -188,12 +189,31 @@
 {\begin{alwayssingle}
   \thispagestyle{empty}
   \begin{center}
-  \vspace*{1.5cm}
+  \vspace*{9.5cm}
   {\LARGE }
   \end{center}
   \vspace{0.5cm}
   \begin{verse}\begin{center}}
 {\end{center}\end{verse}\end{alwayssingle}}
+
+
+       
+% PUBLICATIONS
+%
+% The dedication environment makes sure the dedication gets its
+% own page and is set out in verse format.
+
+\newenvironment{publications}
+{\begin{alwayssingle} \thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+{\Large \bfseries Thesis Outputs}
+\end{center}
+\vspace{0.5cm}}
+{\end{alwayssingle}}
+
+
+
 
 
 % ACKNOWLEDGEMENTS
@@ -209,9 +229,17 @@
 \vspace*{1.5cm}
 {\Large \bfseries Acknowledgements}
 \end{center}
-\vspace{0.5cm}
-\begin{quote}}
-{\end{quote}\end{alwayssingle}}
+\vspace{0.5cm}}
+{\end{alwayssingle}}
+
+\newenvironment{declaration}
+{\begin{alwayssingle} \thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+{\Large \bfseries Declaration}
+\end{center}
+\vspace{0.5cm}}
+{\end{alwayssingle}}
 
 % The acknowledgementslong environment puts a large, bold, centered 
 % "Acknowledgements" label at the top of the page. The acknowledgement itself 
@@ -293,6 +321,7 @@
 {\cleardoublepage\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}}
 {\cleardoublepage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
+\newcommand{\collegecrest}{\includegraphics[width=30mm]{images/st_annes_logo.pdf}}
 \newcommand{\crest}{\includegraphics[width=32mm]{images/oxford-crest_blue-on-white.pdf}}
 
 % Title page etc
@@ -315,7 +344,11 @@ set the thesis author's college}
 \else\fi
 \@ThesisAuthor\\
 \it{\@ThesisCollege
-}\\[35pt]}
+}
+\vspace{2mm}
+\\
+\collegecrest 
+}
 
 \date{
 \ifx \@ThesisDraftMode \@empty
@@ -515,7 +548,6 @@ D.Phil. Thesis\\
 \newrefformat{fig}{Figure~\ref{#1}\ifthenelse{\thepage<\pageref{#1}}{ on page~\pageref{#1}}{}}
 \newrefformat{tab}{Table~\ref{#1}\ifthenelse{\thepage<\pageref{#1}}{ on page~\pageref{#1}}{}}
 \newrefformat{lst}{Listing~\ref{#1}\ifthenelse{\thepage<\pageref{#1}}{ on page~\pageref{#1}}{}}
-
 
 
 %\newcounter{clearpagesct}

@@ -1,24 +1,37 @@
+
 \documentclass[onehalfspacing,reservepages,10pt]{sjvanschaik-thesis}
 
 \usepackage[english]{babel}
-\usepackage{mathptmx}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{times}
 \usepackage{flushend}
+\usepackage{palatino}
 \usepackage{enumitem}
-\usepackage{graphicx}
-%\usepackage{program}
+\usepackage{wrapfig}
+\usepackage{epigraph}
+\usepackage{subfig}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+\usepackage{multirow}
 
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
 \newcommand{\lt}{<}
 \newcommand{\gt}{>}
 
 \ThesisAuthor{Eamonn J. Maguire}
 \ThesisCollege{St. Anne's College}
-\ThesisTitle{Compression in Visualization}
+\ThesisTitle{Systematising Glyph Design for Visualization}
 \ThesisTerm{Michaelmas}
 \ThesisYear{2014}
 
@@ -31,9 +44,10 @@
 \maketitle
 
 \begin{romanpages}
-%\input{other-content/abstract}
-%\input{other-content/dedication}
-%\input{other-content/acknowledgements}   
+\input{additional/abstract}
+\input{additional/dedication}
+\input{additional/acknowledgements}   
+\input{additional/publications}   
 
 %set the number of sectioning levels that get number and appear in the contents
 \setcounter{secnumdepth}{3}
@@ -47,17 +61,14 @@
 
 %\chapter{My Chapter}
 %\blindtext
+
 \input{chapters/introduction}
-\input{chapters/prelims}
-%\input{chapters/dataformalisms}
-%\input{chapters/eventnetworks}
-%\input{chapters/probcomp}
-%\input{chapters/usecase-demo}
 \input{chapters/relatedwork}
+\input{chapters/strategies}
 \input{chapters/glyph-taxonomy}
 \input{chapters/automacron}
-
-\input{chapters/futurework}
+\input{chapters/timeseries}
+\input{chapters/processes}
 \input{chapters/conclusion}
 
 
@@ -65,9 +76,11 @@
 %\appendix
 %\include{appendices/pseucode.tex}
 \listoffigures
+\listofalgorithms
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{thesis}
-\bibliographystyle{amsalpha}
+%\bibliographystyle{apalike}
+\bibliographystyle{abbrv}
 
 \end{document}
 
