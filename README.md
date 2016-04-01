@@ -1,0 +1,46 @@
+# Systematising Glyph Design for Visualization
+
+
+### Eamonn J. Maguire
+
+St. Anne’s College
+
+Department of Computer Science
+
+University of Oxford
+
+
+### Abstract
+The digitalisation of information now affects most fields of human activity. From the social sciences
+to biology to physics, the volume, velocity, and variety of data exhibit exponential growth trends.
+With such rates of expansion, efforts to understand and make sense of datasets of such scale, however
+driven and directed, progress only at an incremental pace. The challenges are significant. For
+instance, the ability to display an ever growing amount of data is physically and naturally bound
+by the dimensions of the average sized display. A synergistic interplay between statistical analysis
+and visualisation approaches outlines a path for significant advances in the field of data exploration.
+We can turn to statistics to provide principled guidance for prioritisation of information
+to display. Using statistical results, and combining knowledge from the cognitive sciences, visual
+techniques can be used to highlight salient data attributes.
+The purpose of this thesis is to explore the link between computer science, statistics, visualization,
+and the cognitive sciences, to define and develop more systematic approaches towards the
+design of glyphs.
+Glyphs represent the variables of multivariate data records by mapping those variables to one
+or more visual channels (e.g., colour, shape, and texture). They offer a unique, compact solution to
+the presentation of a large amount of multivariate information. However, composing a meaningful,
+interpretable, and learnable glyph can pose a number of problems. The first of these problems
+exist in the subjectivity involved in the process of data to visual channel mapping, and in the organisation
+of those visual channels to form the overall glyph. Our first contribution outlines a
+computational technique to help systematise many of these otherwise subjective elements of the
+glyph design process.
+For visual information compression, common patterns (motifs) in time series or graph data for
+example, may be replaced with more compact, visual representations. Glyph-based techniques can
+provide such representations that can help users find common patterns more quickly, and at the
+same time, bring attention to anomalous areas of the data. However, replacing any data with a
+glyph is not going to make tasks such as visual search easier. A key problem is the selection of
+semantically meaningful motifs with the potential to compress large amounts of information. A
+second contribution of this thesis is a computational process for systematic design of such glyph
+libraries and their subsequent glyphs.
+A further problem in the glyph design process is in their evaluation. Evaluation is typically
+a time-consuming, highly subjective process. Moreover, domain experts are not always plentiful,
+therefore obtaining statistically significant evaluation results is often difficult. A final contribution
+of this work is to investigate if there are areas of evaluation that can be performed computationally.
