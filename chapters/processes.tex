@@ -1,0 +1,166 @@
+\chapter{Processes and Evaluations for Glyph-Design}
+\label{chap:processes}
+
+\begin{chapquote}{W. Edwards Deming}{``We should work on our process, not the outcome of our processes.''}
+\end{chapquote}
+
+So far, the work in Chapters \ref{chap:glyph-tax}, \ref{chap:automacron}, and \ref{chap:timeseries} have made heavy use of computational approaches for either generation of the glyphs (Chapters \ref{chap:glyph-tax} and \ref{chap:automacron}), selection of data to be encoded as a glyph (Chapter \ref{chap:automacron} and \ref{chap:timeseries}), or both (Chapter \ref{chap:automacron}).
+
+
+Chapters \ref{chap:glyph-tax} and \ref{chap:automacron} evaluated glyphs through a constant domain-expert interaction.
+Chapter \ref{chap:automacron} also evaluated the performance of the novel motif finding algorithm with respect to state of the art techniques.
+Chapter \ref{chap:timeseries} evaluated the performance of the motif finding algorithm by comparing results found by our algorithm with a ground truth data set.
+
+As stated in Chapter \ref{chap:strategies}, systematisation, although made more objective through computational approaches, can be feasibly achieved without the computation step.
+This is often the case when domain experts bring enough knowledge to the table (\eg, confidence in statistical distributions, already knowing the structures in the data, or already have a well defined categorisation scheme available) to make this step unnecessary.
+Table \ref{tab:processes} shows the approaches to glyph design with respect to systematisation and evaluation for three examples including: biological sequence (section \ref{sec:sequence_logo}); poetry (section \ref{sec:poetry}); and file system event visualization (section \ref{sec:file_system}).
+
+\begin{table}[b!]
+\begin{tabular}{|l|l|l|l|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{Systematization}} &  \\ \cline{2-3}
+\multirow{-2}{*}{\textbf{Project}} & \multicolumn{1}{c|}{\textbf{Computational}} & \multicolumn{1}{c|}{\textbf{Design Guidelines}} & \multirow{-2}{*}{\textbf{Evaluation Process}} \\ \hline
+%\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textit{Chapter 4}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{9B9B9B} \textit{\begin{tabular}[c]{@{}l@{}}Domain expert\\ collaboration\end{tabular}}} \\ \hline
+%\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textit{Chapter 5}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{9B9B9B} \textit{\begin{tabular}[c]{@{}l@{}}Domain expert\\ collaboration\end{tabular}}} \\ \hline
+%\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textit{Chapter 6}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{24AE5F} \textit{Yes}} & {\color[HTML]{9B9B9B} \textit{Benchmarking}} \\ \hline
+\cellcolor[HTML]{FFFFFF}{\color[HTML]{343434} \textbf{Biological Sequence Logo}} & {\color[HTML]{E64C3C} No} & {\color[HTML]{24AE5F} Yes} & Online user survey \\ \hline
+\cellcolor[HTML]{FFFFFF}{\color[HTML]{343434} \textbf{Poem Glyph}} & {\color[HTML]{E64C3C} No} & {\color[HTML]{24AE5F} Yes} & \begin{tabular}[c]{@{}l@{}}Domain expert \\ collaboration\end{tabular} \\ \hline
+\cellcolor[HTML]{FFFFFF}{\color[HTML]{343434} \textbf{Poem Macro Glyph}} & {\color[HTML]{24AE5F} Yes} & {\color[HTML]{24AE5F} Yes} & Semi-structured interviews \\ \hline
+\cellcolor[HTML]{FFFFFF}{\color[HTML]{343434} \textbf{File System Event Glyphs}} & {\color[HTML]{E64C3C} No} & {\color[HTML]{24AE5F} Yes} & \begin{tabular}[c]{@{}l@{}}User surveys \\ and computational \\ validation\end{tabular} \\ \hline
+\end{tabular}
+\caption{Systematization and evaluation approaches for work presented in this chapter.}
+\label{tab:processes}
+\end{table}
+
+For \textbf{biological sequence visualization} in section \ref{sec:sequence_logo}, we used glyph-based solutions for the visualization of DNA, RNA, and protein sequence conservation.
+No computational techniques were used in the design stage since the data, tasks, categorisations and so forth were readily available. 
+Systematisation was achieved through following design principles.
+Evaluation was performed through domain expert interaction and by conducting an online survey at the end with over forty biologists and bioinformaticians.\\
+
+\textbf{Poetry visualization} in section \ref{sec:poetry}, involved the creation of glyphs to support poetry scholars in their exploration of poems and their features.
+This work was divided into two stages:
+
+\begin{enumerate}
+
+\item The creation of a glyph design for poems that encompasses the semantic and phonetic information for each word, and shows semantic and phonetic connections across words and lines.
+Although the design process was informed by Chapter \ref{chap:related_work}, computation was not involved.
+Evaluation of this work was carried out with constant (and geographically remote) domain expert interactions; and
+
+\item Provision of an overview (or ``macro'' glyph) to show how sounds progress within a poem.
+This design process makes use of computational approaches to generate statistics on the data.
+These statistics then informed the glyph design decisions.
+To \emph{evaluate} the approach, we conducted semi-structured interviews with domain experts.
+
+\end{enumerate}
+
+Finally, for \textbf{file system event visualization} in section \ref{sec:file_system}, glyphs were created to mark different event types in a file system (\eg, copy, move, create, delete).
+The design process was very different from other work as it consisted of the formation of a new theoretic concept to assist with the creation of visually distinct glyphs using the minimal Hamming distance, a metric commonly used in communication.
+First, we tested the viability of the theory through computational- and user-based assessments of shape and colour similarity.
+Then, using the file system glyphs, we evaluated their distinctiveness using both computational- and user-based assessments.
+Designs were refined based on these results to increase distinguishability where required.
+
+%
+%This is as opposed to systematisation of the glyph selection \emph{and} the glyph design process in Chapters \ref{chap:glyph-tax}, \ref{chap:automacron}, and \ref{chap:timeseries}.
+%Additionally, the work presented here shows additional ways to perform evaluation with the use of: \emph{online surveys} for biological sequence visualization; \emph{offline surveys} for file system event visualization; and \emph{semi-structured interviews} in the poetry visualization work. 
+
+
+%\begin{enumerate}
+%
+%
+%\item \textbf{Biological sequence visualization} in Section \ref{sec:sequence_logo} applies glyph-based solutions to the visualization of DNA sequence conservation.
+%This work involved the redesign of a visualization, rather than a complete new design.
+%The work set out to improve the representation rather than the creation of a completely new one.
+%This meant that the design process was different from other work in this thesis.
+%However, while the overall idea of the sequence logo remained, the final encoding that was used required conversations with biologists, iterations on the design, and consultation of the literature from Chapter \ref{chap:related_work}. 
+%For the \emph{evaluation}, in addition to the ongoing evaluations by domain experts, an online survey was executed with a over forty biologists and bioinformaticians;
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=\textwidth]{images/other_glyphs/sequence_process}
+%\caption{}
+%\label{fig:sequence_process}
+%\end{figure}
+%
+%
+%\item \textbf{Poetry visualization} in Section \ref{sec:poetry}, involved the creation of glyphs to support poetry scholars in their exploration of a poem and its features.
+%This work involved close collaboration with a user community and involves a two-stage design process:
+%
+%\begin{enumerate}
+%
+%\item The first is the creation of a glyph design for poems that encompasses the semantic and phonetic information at each word, and shows semantic and phonetic connections across words and lines.
+%This glyph design process was informed by Munzner's \emph{nested model} since no computation was used to inform the design process, and evaluation was carried via continuos but largely remote domain expert interaction; and
+%
+%\item The second piece of work extends on the first through provision of an overview or ``macro'' glyph to show how sounds progress within a poem. The design process follows the \emph{nested model for glyph design} approach through making use of computational approaches to generate statistics on the data which informed the glyph design process.
+%To \emph{evaluate} the approach, we conducted semi-structured user interviews with domain experts.
+%
+%\end{enumerate}
+%
+%\item \textbf{File system visualization} in Section \ref{sec:file_system} involves the creation of glyphs to mark different event types in a file system.
+%The \emph{design process} involved the formation of a theoretic concept to help in the creation of visually distinct glyphs. This involved the collection of benchmark measures to help construct the theory, and an evaluation of glyph designs derived from the application of the theory.
+%These benchmark measures involved two types of measurement: human-centred; and machine-centred study.
+%
+%\end{enumerate}
+\newpage
+\input{Chapters/processes/sequence_logo}
+\newpage
+\input{Chapters/processes/poetry}
+\newpage
+\input{Chapters/processes/file_system}
+\newpage
+
+\section{Contributions}
+
+This chapter served to show how not all design processes and evaluation techniques need to be the same for systematisation to work.
+There will never be a ``one size fits all'' process for glyph design.
+The importance of domain specificity and metaphoric representations in glyphs are often key to ensuring their memorability and learnability.
+The point of systematisation is to make glyph design more objective (rather than subjective).
+This can take on many forms, including structuring how to select the motifs that should be made as glyphs for visual compression, how visual channels should be used in terms of data specificity or natural/semantic mappings, or how glyphs can be composed based on the importance of particular variables in the data?
+
+The three examples in this chapter showed how one or more of the techniques introduced in Chapter \ref{chap:strategies} could be used to inform the design of glyphs.\\
+
+
+For \textbf{biological sequence visualization}, we have presented a new design for the sequence logo that incorporates glyph-based techniques to aid interpretation.
+Our usability tests demonstrated that users generally found consensus sequence reading tasks easier with the new sequence logo.
+Users, on the whole, agreed that the new representation did a better job of improving the display of salient information.
+The design process did not involve the use of computational approaches.
+However the design process was systematised through close domain-expert interaction accompanied by consultation of design principles.
+Metaphor was used to decrease the cognitive overhead required to learn new glyph associations.
+Evaluation was conducted with an online survey consisting of over forty users who were both familiar and unfamiliar with the sequence logo. 
+This work was published as a short paper and presented at EuroVis 2015 in a paper entitled \emph{Redesigning the Sequence Logo with Glyph-based Approaches to Aid Interpretation} \cite{CGF:maguire14-sp}.\\
+
+For \textbf{poetry visualization}, we presented a two-stage approach to:
+1) a glyph design to represent the variables of a poem; and
+2) an overview glyph to show how sounds change throughout a poem. 
+
+The first piece of work utilised research presented in Chapters \ref{chap:related_work} and \ref{chap:glyph-tax}, which contributed to the overall design (\eg, use of natural mappings).
+The design process involved close domain expert interaction to help refine the glyph design.
+This is often unavoidable, but it is time consuming.
+For example, many of the iterations on the design of the mini-glyph showing how particular sounds are formed could have been removed through computational approaches that could automatically determine which sounds are pronounced within a corpus of English text.
+Instead, the 5x7 to 3x3 grid evolution was made possible only through multiple iterations with the domain experts. 
+This triggered the idea to experiment with a computational approach for the design of macro glyphs.
+This work was published in the Computer Graphics Forum in 2013 in a publication by Abdul-Rahman \etal named \emph{Rule-based Visual Mappings -- with a Case Study on Poetry Visualization} \cite{CGF:Abd2013a}. 
+
+The second piece of work showed how statistical analysis of the data can assist the glyph design process.
+Converse to the previous glyph design process, this work partially removed the need for constant domain expert interaction.
+Domain experts were only consulted at the start of the design process for requirements elicitation, and at the end for evaluation.
+The intermediate stages involved no user interaction.
+Through performing statistical analysis of a representative English text collection, we obtained metrics that were able to inform the design process with more precision than was gained from subjective analysis by domain experts.
+For example, in the previous work, domain experts took some time to decide which parts of the full 5x7 IPA vowel chart were required to represent sounds in the English language.
+From our analyses, this was determined in less than a minute with a representative sample of English text.
+Additionally, our analyses also found that two positions from the 3x3 grid were never used in the collection of text we analysed.
+The work was evaluated through a semi-structured interview with poetry scholars.
+This work was published as a short paper in 2014 in a publication by Abdul-Rahman \etal named \emph{Comparing Three Designs of Macro-Glyphs for Poetry Visualization} \cite{CGF:abdul-rahman14-sp}.\\
+
+For \textbf{file system visualization}, we presented a glyph-based visualization using glyphs whose design was driven by a novel conceptual framework, the \emph{quasi-Hamming distance} (QHD). 
+The QHD facilitated a systematic approach to the design of fail-safe glyph encoding schemes.
+To demonstrate the feasibility of this conceptual framework, we presented two proof-of-concept experiments, where we obtained QHD measures from a human-centric survey and from computer-based similarity measures.
+To demonstrate its practical applicability, we conducted a case study where event logs from Dropbox and Git were visualised using a set of fail-safe glyphs.
+
+This work provides a further stepping stone towards the establishment of a collection of mathematical and cognitive theories, experimental findings and statistics, design techniques and computational metrics for guiding, and aiding glyph design.
+However, before the QHD technique is truly useful, two substantial research questions will need to be answered:
+1) how can we understand the relationship between the just-noticeable difference measures of various visual channels and the differentiability of glyphs encoded using such visual channels?; and
+2) how can we create computer-based metrics, more similar to human-based metrics for determining the distinctiveness of glyphs in a code. 
+
+Nevertheless, this work is a good first step.
+Additionally, with work already beginning to surface, \eg, \emph{Perceptual Kernels} \cite{demiralplearning}, the answers to these questions may come sooner rather than later.
+

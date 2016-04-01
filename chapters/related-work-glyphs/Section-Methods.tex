@@ -1,0 +1,102 @@
+%\section{Techniques}
+%Glyphs are often used to simultaneously represent multiple data variates in the same image~\cite{ward08glyphs}.
+
+%\begin{itemize}
+%	\item visual channel (color, shape, size, texture, and opacity) vs.\
+%	\item visualizaiton dimensionality (2D, 2.5D, 3D)
+%\end{itemize}
+
+
+
+
+\subsubsection{Glyph Placement}
+
+The placement of glyphs is a prominent visual stimuli and can be used
+to convey information about the data.  In the context of information visualization, Ward~\cite{ward02glyphPlacement} categorizes placement 
+strategies into \emph{data-} and \emph{structure-driven} placement.
+The former is directly based on individual variables or spatial dimensions of the data, or on derived information such as principal components. 
+Examples of data-driven strategies are placing the glyphs in a 2D~scatterplot or locating them aligned with the underlying data grid 
+(in case of spatial data).
+Structure-driven placement, on the other hand, is based on the ordering, hierarchical or other relationships of the data variables.
+According to Ropinski et al.~\cite{Ropinski11glyphs} such strategies, however, are not directly applicable to medical data. 
+Therefore, they suggest \emph{feature-driven} placement as an additional category, where glyphs are placed on local data features such as iso-surfaces~\cite{ropinski07surfaceglyphs, meyer-spradow08specGlyphs}.
+We consider it useful to also consider \emph{user-driven} placement, 
+where glyphs are manually placed to investigate the data at a certain location~\cite{deLeeuwVanWijk93probe, TreinishEffektiveWeather}.
+
+In the context of data-driven placement~\cite{ward02glyphPlacement}, glyphs can be placed according to \emph{derived information} as well.
+Dimensionality reduction approaches, for instance, aim at reducing the data dimensionality while maintaining the higher-dimen\-sional characteristics.
+Such placement strategies can facilitate the perception of similar glyph shapes, which should be located close to each other.
+Principal component analysis~\cite{WardGuo11shapeSpace}~(PCA) is such an example, which transforms multivariate data into an orthogonal coordinate system that is aligned with the greatest variance in the data.
+Wong and Bergeron~\cite{WongBergeron97multiDimScaling} apply multi-dimensional scaling (MDS) for mapping higher-dimen\-sional data items into a lower-dimen\-sional space while preserving the dissimilarities between the items. Since MDS also maintains the higher-dimen\-sional structure of the data, it is well suitable for subsequent clustering.
+With such methods, however, the semantic meaning of the glyph location is usually lost, in contrast to techniques that are based on the raw data~\cite{ward02glyphPlacement}.
+
+\textbf{[DG11] Balanced glyph placement.}
+Glyphs may overlap and form unwanted aggregations in image space, for instance, resulting from a regular data grid. 
+Such aggregations should be avoided, since they may be erroneously identified as features~\cite{Ropinski11glyphs, ward02glyphPlacement}.
+%Avoid unwanted glyph aggregations in image space}~\cite{Ropinski11glyphs}.
+Laidlaw et al.~\cite{laidlaw98}, for instance, apply random jittering when placing brush strokes to represent DTI~data.
+Kindlmann and Westin~\cite{kindlmannWestin06glyphPacking} use a particle system for densely packing superquadric glyphs 
+(Figure~\ref{fig:sparseVsDense}b).
+Meyer-Spradow et al.~\cite{meyer-spradow08specGlyphs} evenly distribute surface glyphs by combining a random placement with relaxation criteria.
+
+In the context of glyph placement, the number of depicted data variables must be seen in relation to the available screen resolution (compare to DG2).
+Large and complex glyphs such as the local probe~\cite{deLeeuwVanWijk93probe} can be used when only a few data points need to be visualised (or during individual exploration).
+If many glyphs should be displayed in a dense manner, however, a more simple glyph may be desirable~\cite{pickettGrinstein88iconic, kindlmannWestin06glyphPacking, lie09glyphs}.
+
+%A number of different strategies exist for placing glyphs~\cite{ward02glyphPlacement, Ropinski11glyphs}.
+%[Explain them; difference between InfoVis and SciVis, 2D/3D]
+
+%Guideline: glyph placement should avoid unwanted glyph aggregations in image space~\cite{Ropinski11glyphs} (e.g., using jittering)
+
+%Feature-driven vs.\ dataset-driven placement (\eg, jittering, packing) vs.\ interactive (exploration-driven)
+
+%The usage of certain glyph properties may also distort the interpretation of others.
+
+%-------------------------------------------------------------------------
+\subsection{Rendering}
+\label{sec:rendering}
+%-------------------------------------------------------------------------
+
+In the final stage of the visualization pipeline (Figure~\ref{fig:pipeline}), glyphs are transferred from visualization space to the resulting image, where one has to cope with issues such as visual cluttering, depth perception, and occlusion~\cite{lie09glyphs}.
+In the following, we discuss approaches such as halos, interactive slicing, or brushing.
+
+\textbf{[DG12] Facilitate depth perception for 3D visualizations.}
+%Important aspects when rendering many glyphs in a dense 3D~context are depth perception, occlusion, and visual cluttering~\cite{lie09glyphs}.
+In cases where many glyphs overlap, \emph{halos} can help to enhance the depth perception and to distinguish individual glyphs from each other~\cite{lie09glyphs}.
+Piringer et al.~\cite{piringer04scatterplots} and Interrante et al.~\cite{interranteGrosch98flow} use halos to emphasize discontinuity in depth and to draw the users attention towards objects.
+For improving the depth perception for non-overlapping glyphs, a special colour map (called \emph{chroma depth}~\cite{toutin97chromaDepth}) can be used to represent depth.
+Since colour is a dominant visual channel, however, it is questionable whether to use it for depicting depth instead of depicting a data variable.
+
+%Finally, appropriate glyph placement~\cite{ropinskiPreim08glyphTaxonomy, ward02glyphPlacement}, interactive slicing, or filtering via brushing are strategies for dealing with occlusion and cluttering issues.
+
+\textbf{[DG13] Avoid occlusion by interactive slicing or brushing:}
+Occlusion is a major problem when reading glyphs. Therefore, it can be advantageous to employ interactive slicing or brushing.
+Using a view dependent slice-based visualization, for example, glyphs that are located in front of a user-controlled plane are not displayed~\cite{lie09glyphs}.
+Using linking and brushing in coordinated multiple views,
+glyphs can be filtered out based on user-defined criteria~\cite{kehrer11interface}.
+
+\textbf{[DG14] Avoid perspective projections when using glyph size to encode a data variable}~\cite{Ropinski11glyphs}.
+In such cases, an orthographic projection is preferable, which supports the comparison of glyph size at different locations.
+
+
+
+
+
+\subsection{Glyph Interaction}
+\label{sec:interaction}
+
+Interaction in glyph-based visualizations forms an important aspect in modern visual analytics.
+Legg et al.~\cite{legg12matchPad} introduce such an example in sport notational analysis, by developing the MatchPad: an interactive visualization software that incorporates a series of intuitive user-interactions and a scale-adaptive layout to support data navigation.
+One essential requirement in notational analysis in sport is the ability to review key video event footage.
+Since glyphs have a limited encoding capacity, it would be impractical to map such data (e.g., a video clip, tracking data) entirely to a glyph.
+Thus, the authors interactively link the playback of videos through glyphs to support rapid information retrieval.
+
+The work of Chung et al.~\cite{chung13glyphSorting} extends this further by integrating focus+context techniques into glyph-based visual analytics to emphasise the perceptual orderability of attributes on glyphs.
+They propose a system that incorporates a focus+context glyph-based interface to control and understand high-dimensional sorting of multivariate data. 
+Selected components on the glyph are rendered in focus which adjusts and populates various sorting parameters within a linked \emph{Interactive, Multidimensional Glyph} (IMG) plot.
+The IMG plot arranges the glyphs along two primary sorting axes. 
+Various interactive tools are described to support user exploration which include: brushing tools for selecting glyphs, pan-and-zoom, and optional display preferences (e.g., connectivity lines) for conveying additional data.
+
+
+
+
